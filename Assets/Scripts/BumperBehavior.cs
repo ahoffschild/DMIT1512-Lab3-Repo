@@ -8,7 +8,7 @@ public class BumperBehavior : MonoBehaviour
     Color originalColor;
     [SerializeField] Color newColor;
     [SerializeField] int animationTimer;
-    int internalTimer;
+    [SerializeField] int internalTimer;
     Vector3 baseScale;
     float baseRadius;
     new CircleCollider2D collider;
@@ -43,15 +43,16 @@ public class BumperBehavior : MonoBehaviour
 
     void Animate1()
     {
-        if (internalTimer > animationTimer)
+        if (internalTimer >= animationTimer)
         {
             state = BumperState.Return;
         }
         else
         {
-            transform.localScale = baseScale + new Vector3(0.2f * (internalTimer / animationTimer), 0.2f * (internalTimer / animationTimer));
+            gameObject.transform.localScale = baseScale + new Vector3(0.2f * (internalTimer / animationTimer), 0.2f * (internalTimer / animationTimer), 0);
             collider.radius = baseRadius - 0.1f * (internalTimer / animationTimer);
             internalTimer++;
+            Debug.Log(gameObject.transform.localScale);
         }
     }
 
@@ -64,17 +65,15 @@ public class BumperBehavior : MonoBehaviour
         }
         else
         {
-            transform.localScale = baseScale - new Vector3(0.2f * (internalTimer / animationTimer), 0.2f * (internalTimer / animationTimer));
+            transform.localScale = baseScale - new Vector3(0.2f * (internalTimer / animationTimer), 0.2f * (internalTimer / animationTimer), 0);
             collider.radius = baseRadius + 0.1f * (internalTimer / animationTimer);
             internalTimer--;
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);
         state = BumperState.Struck;
-        Debug.Log("Help");
     }
 }
 
