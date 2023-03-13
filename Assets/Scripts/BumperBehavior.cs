@@ -7,16 +7,18 @@ public class BumperBehavior : MonoBehaviour
     [SerializeField] BumperState state;
     Color originalColor;
     [SerializeField] Color newColor;
-    [SerializeField] int animationTimer;
-    [SerializeField] int internalTimer;
+    [SerializeField] float animationTimer;
+    float internalTimer;
     Vector3 baseScale;
     float baseRadius;
     new CircleCollider2D collider;
+    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
     void Start()
     {
         collider = gameObject.GetComponent<CircleCollider2D>();
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         state = BumperState.Idle;
         originalColor = gameObject.GetComponent<SpriteRenderer>().color;
         internalTimer = 0;
@@ -50,9 +52,9 @@ public class BumperBehavior : MonoBehaviour
         else
         {
             gameObject.transform.localScale = baseScale + new Vector3(0.2f * (internalTimer / animationTimer), 0.2f * (internalTimer / animationTimer), 0);
+            Debug.Log(baseScale + new Vector3(0.2f * (internalTimer / animationTimer), 0.2f * (internalTimer / animationTimer), 0));
             collider.radius = baseRadius - 0.1f * (internalTimer / animationTimer);
             internalTimer++;
-            Debug.Log(gameObject.transform.localScale);
         }
     }
 
@@ -61,12 +63,13 @@ public class BumperBehavior : MonoBehaviour
         if (internalTimer <= 0)
         {
             state = BumperState.Idle;
+            spriteRenderer.color = originalColor;
             internalTimer = 0;
         }
         else
         {
-            transform.localScale = baseScale - new Vector3(0.2f * (internalTimer / animationTimer), 0.2f * (internalTimer / animationTimer), 0);
-            collider.radius = baseRadius + 0.1f * (internalTimer / animationTimer);
+            transform.localScale = baseScale + new Vector3(0.2f * (internalTimer / animationTimer), 0.2f * (internalTimer / animationTimer), 0);
+            collider.radius = baseRadius - 0.1f * (internalTimer / animationTimer);
             internalTimer--;
         }
     }
@@ -74,6 +77,7 @@ public class BumperBehavior : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         state = BumperState.Struck;
+        spriteRenderer.color = newColor;
     }
 }
 
