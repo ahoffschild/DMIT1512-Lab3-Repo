@@ -409,8 +409,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  newColor: {r: 0, g: 0, b: 0, a: 0}
-  animationTimer: 20
+  newColor: {r: 1, g: 0.8352941, b: 0.99215686, a: 1}
+  animationTimer: 15
 --- !u!1 &382741978
 GameObject:
   m_ObjectHideFlags: 0
@@ -2869,8 +2869,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  newColor: {r: 0, g: 0, b: 0, a: 0}
-  animationTimer: 20
+  newColor: {r: 1, g: 0.8352941, b: 0.99215686, a: 1}
+  animationTimer: 15
 --- !u!1 &1393645227
 GameObject:
   m_ObjectHideFlags: 0
@@ -3132,8 +3132,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  newColor: {r: 0, g: 0, b: 0, a: 0}
-  animationTimer: 20
+  newColor: {r: 1, g: 0.8349056, b: 0.9885543, a: 1}
+  animationTimer: 15
 --- !u!1 &1509009592
 GameObject:
   m_ObjectHideFlags: 0
@@ -3940,8 +3940,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  newColor: {r: 0, g: 0, b: 0, a: 0}
-  animationTimer: 20
+  newColor: {r: 1, g: 0.8352941, b: 0.99215686, a: 1}
+  animationTimer: 15
 --- !u!1001 &1803347966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4242,8 +4242,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   state: 0
-  newColor: {r: 0, g: 0, b: 0, a: 0}
-  animationTimer: 20
+  newColor: {r: 1, g: 0.8352941, b: 0.99215686, a: 1}
+  animationTimer: 15
 --- !u!1 &1949209892
 GameObject:
   m_ObjectHideFlags: 0
