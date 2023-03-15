@@ -8,16 +8,19 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] PaddleBehavior leftPaddle;
     [SerializeField] PaddleBehavior rightPaddle;
     [SerializeField] PlungerBehavior plunger;
+	[SerializeField] GameState gameState;
 
-    [SerializeField] InputAction useLeft;
+	[SerializeField] InputAction useLeft;
     [SerializeField] InputAction useRight;
     [SerializeField] InputAction usePlunger;
+    [SerializeField] InputAction goToMenu;
 
     private void OnEnable()
     {
         useLeft.Enable();
         useRight.Enable();
         usePlunger.Enable();
+		goToMenu.Enable();
     }
 
     private void OnDisable()
@@ -25,6 +28,7 @@ public class PlayerBehavior : MonoBehaviour
         useLeft.Disable();
         useRight.Disable();
         usePlunger.Disable();
+		goToMenu.Disable();
     }
 
     // Start is called before the first frame update
@@ -39,5 +43,6 @@ public class PlayerBehavior : MonoBehaviour
         leftPaddle.Flip(useLeft.IsPressed());
         rightPaddle.Flip(useRight.IsPressed());
         plunger.PullPlunger(usePlunger.ReadValue<float>());
+        gameState.ReturnToMenu(goToMenu.IsPressed());
     }
 }

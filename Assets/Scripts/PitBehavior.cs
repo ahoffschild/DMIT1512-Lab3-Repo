@@ -5,11 +5,13 @@ using UnityEngine;
 public class PitBehavior : MonoBehaviour
 {
     [SerializeField] Transform ballSpawnPoint;
+    [SerializeField] GateBehavior gateBehavior;
+    GameState gameState;
     // Start is called before the first frame update
     void Start()
     {
-        
-    }
+		gameState = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameState>();
+	}
 
     // Update is called once per frame
     void Update()
@@ -19,6 +21,8 @@ public class PitBehavior : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         StartCoroutine(WaitToRespawn(collision));
+        gateBehavior.GateOpen();
+        gameState.ballsLeft--;
     }
 
     IEnumerator WaitToRespawn(Collider2D collider)

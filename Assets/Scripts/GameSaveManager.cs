@@ -8,28 +8,38 @@ public class GameSaveManager : MonoBehaviour
 {
     // Start is called before the first frame update
     protected GameState gameState;
+    public int highScore;
+    string dataPath;
 
-    public void LoadFromDisk()
+    private void Awake()
     {
-        string dataPath = Path.Combine(Application.persistentDataPath, "Pinball_HighScore.txt");
+        dataPath = Path.Combine(Application.persistentDataPath, "Pinball_HighScore.txt");
+    }
 
-        if(File.Exists(dataPath))
+	private void Start()
+	{
+		gameState = GameObject.FindObjectOfType<GameState>();
+	}
+
+	public void LoadFromDisk()
+    {
+        if (File.Exists(dataPath))
         {
             using (StreamReader streamReader = File.OpenText(dataPath))
             {
                 string jsonString = streamReader.ReadToEnd();
+
+                JsonUtility.FromJsonOverwrite(jsonString, highScore);
             }
         }
     }
 
-    void Start()
+    public void SaveToDisk()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        string jsonString = JsonUtility.ToJson(gameState.score);
+        using (StreamWriter sw = File.CreateText(dataPath))
+        {
+            sw.Write(jsonString);
+        }
     }
 }

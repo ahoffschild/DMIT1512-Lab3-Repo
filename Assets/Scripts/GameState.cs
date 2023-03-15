@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GameState : MonoBehaviour
 {
+    public GameManagerState gameState;
     public int score = 0;
     public int targetCount = 4;
     [SerializeField] int ballsCount;
@@ -12,6 +13,7 @@ public class GameState : MonoBehaviour
     [SerializeField] int targetFullClear;
     int internalTimer;
     TargetBehavior[] targets = new TargetBehavior[4];
+    GameSaveManager saveManager;
     private void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("GameController");
@@ -30,6 +32,9 @@ public class GameState : MonoBehaviour
             targets[i] = gameObject.GetComponent<TargetBehavior>();
             i++;
         }
+        ballsLeft = ballsCount;
+        gameState = GameManagerState.Active;
+        saveManager = FindObjectOfType<GameSaveManager>();
     }
 
     // Update is called once per frame
@@ -38,6 +43,11 @@ public class GameState : MonoBehaviour
         if (targetCount == 0)
         {
             RespawnTargets();
+        }
+        if (ballsLeft == 0 && gameState == GameManagerState.Active)
+        {
+            GameObject.Find("Ball").SetActive(false);
+            gameState = GameManagerState.Inactive;
         }
     }
 
@@ -61,4 +71,30 @@ public class GameState : MonoBehaviour
             internalTimer++;
         }
     }
+
+    public void ReturnToMenu(bool check)
+    {
+        if (check && gameState == GameManagerState.Inactive)
+        {
+            saveManager.LoadFromDisk();
+            if (saveManager.highScore < score)
+            {
+                saveManager.SaveToDisk();
+            }
+            GameSceneManager.LoadMenu();
+		}
+	}
+
+    public string HighscoreString()
+    {
+        string output;
+        output = $"SCORE = {score}";
+        return output;
+    }
+}
+
+public enum GameManagerState
+{
+    Active,
+    Inactive
 }

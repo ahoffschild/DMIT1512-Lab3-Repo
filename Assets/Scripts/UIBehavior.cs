@@ -25,13 +25,25 @@ public class UIBehavior : MonoBehaviour
         }
         if (type == UIType.Lives)
         {
-			textMeshPro.text = $"LIVES: 0";
+			textMeshPro.text = $"LIVES: {gameState.ballsLeft}";
 		}
+        if (type == UIType.Gameover)
+        {
+            if (gameState.gameState == GameManagerState.Active)
+            {
+                textMeshPro.enabled = false;
+            }
+            else
+            {
+                textMeshPro.enabled = true;
+            }
+        }
     }
 }
 
 public enum UIType
 {
     Score,
-    Lives
+    Lives,
+    Gameover
 }
