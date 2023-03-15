@@ -15,12 +15,12 @@ public class ScoreUIBehavior : MonoBehaviour
         textMesh = GetComponent<TextMeshProUGUI>();
         if (scoreDisplayType == ScoreDisplayType.Local)
         {
-            FindObjectOfType<GameState>();
+            gameState = FindObjectOfType<GameState>();
             textMesh.text = $"Your Local Score is:\n{gameState.score}";
         }
         else
         {
-            FindObjectOfType<GameSaveManager>();
+            gameSaveManager = FindObjectOfType<GameSaveManager>();
             gameSaveManager.LoadFromDisk();
 			textMesh.text = $"The High Score is:\n{gameSaveManager.highScore}";
 		}

@@ -8,7 +8,7 @@ public class PlayerBehavior : MonoBehaviour
     [SerializeField] PaddleBehavior leftPaddle;
     [SerializeField] PaddleBehavior rightPaddle;
     [SerializeField] PlungerBehavior plunger;
-	[SerializeField] GameState gameState;
+	GameState gameState;
 
 	[SerializeField] InputAction useLeft;
     [SerializeField] InputAction useRight;
@@ -34,7 +34,7 @@ public class PlayerBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameState = FindObjectOfType<GameState>();
     }
 
     // Update is called once per frame

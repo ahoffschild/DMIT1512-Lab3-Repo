@@ -12,7 +12,7 @@ public class GameState : MonoBehaviour
     [SerializeField] int targetRespawnTimer;
     [SerializeField] int targetFullClear;
     int internalTimer;
-    TargetBehavior[] targets = new TargetBehavior[4];
+    TargetBehavior[] targets;
     GameSaveManager saveManager;
     private void Awake()
     {
@@ -26,15 +26,7 @@ public class GameState : MonoBehaviour
 
     void Start()
     {
-        int i = 0;
-        foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Target"))
-        {
-            targets[i] = gameObject.GetComponent<TargetBehavior>();
-            i++;
-        }
-        ballsLeft = ballsCount;
-        gameState = GameManagerState.Active;
-        saveManager = FindObjectOfType<GameSaveManager>();
+        StartMachine();
     }
 
     // Update is called once per frame
@@ -53,6 +45,15 @@ public class GameState : MonoBehaviour
 
     void RespawnTargets()
     {
+        if (targets[0] == null)
+        {
+            int i = 0;
+			foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("Target"))
+			{
+				targets[i] = gameObject.GetComponent<TargetBehavior>();
+				i++;
+			}
+		}
         if (internalTimer == 0)
         {
             score += targetFullClear;
@@ -83,6 +84,14 @@ public class GameState : MonoBehaviour
             }
             GameSceneManager.LoadMenu();
 		}
+	}
+    public void StartMachine()
+    {
+        score = 0;
+        targets = new TargetBehavior[4];
+		ballsLeft = ballsCount;
+		gameState = GameManagerState.Active;
+		saveManager = FindObjectOfType<GameSaveManager>();
 	}
 
     public string HighscoreString()

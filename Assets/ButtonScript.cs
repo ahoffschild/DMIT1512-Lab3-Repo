@@ -7,5 +7,6 @@ public class ButtonScript : MonoBehaviour
 	public void StartGame()
 	{
 		GameSceneManager.LoadMachine();
+		FindObjectOfType<GameState>().StartMachine();
 	}
 }
