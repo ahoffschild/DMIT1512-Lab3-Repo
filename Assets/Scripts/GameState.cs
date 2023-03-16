@@ -78,7 +78,10 @@ public class GameState : MonoBehaviour
         if (check && gameState == GameManagerState.Inactive)
         {
             saveManager.LoadFromDisk();
-            if (saveManager.highScore < score)
+			score = saveManager.playerScore;
+			Debug.Log(saveManager.playerScore);
+            Debug.Log(score);
+			if (saveManager.highScore < score)
             {
                 saveManager.SaveToDisk();
             }
@@ -88,6 +91,7 @@ public class GameState : MonoBehaviour
     public void StartMachine()
     {
         score = 0;
+        targetCount = 4;
         targets = new TargetBehavior[4];
 		ballsLeft = ballsCount;
 		gameState = GameManagerState.Active;

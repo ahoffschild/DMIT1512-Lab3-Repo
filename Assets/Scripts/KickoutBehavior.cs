@@ -11,6 +11,7 @@ public class KickoutBehavior : MonoBehaviour
     [SerializeField] int KickoutFallDuration;
 	[SerializeField] int KickoutInsideDuration;
     [SerializeField] int KickoutCooldown;
+    [SerializeField] int pointStagger;
     [SerializeField] int score;
     int internalTimer;
     float pullValue;
@@ -51,7 +52,8 @@ public class KickoutBehavior : MonoBehaviour
         if (internalTimer > KickoutPullDuration)
         {
             kickoutState = KickoutState.Falling;
-            ball.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
+            ball.transform.position = gameObject.transform.position;
+			ball.GetComponent<Rigidbody2D>().velocity = Vector3.zero;
 			internalTimer = 0;
         }
         else
@@ -90,7 +92,7 @@ public class KickoutBehavior : MonoBehaviour
 		}
 		else
 		{
-            if (internalTimer % 100 == 0)
+            if (internalTimer % pointStagger == 0)
             {
                 gameState.score += score;
             }
