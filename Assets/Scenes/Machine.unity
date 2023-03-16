@@ -405,8 +405,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 159126245}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.75, y: -0.9, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: -2.7, y: -0.9, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 827065087}
@@ -426,7 +426,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   newColor: {r: 0.5801887, g: 0.94258994, b: 1, a: 1}
-  animationTimer: 3
+  animationTimer: 2
   points: 150
 --- !u!58 &159126248
 CircleCollider2D:
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   newColor: {r: 1, g: 0.8352941, b: 0.99215686, a: 1}
-  animationTimer: 3
+  animationTimer: 2
   points: 250
 --- !u!1 &328731491
 GameObject:
@@ -1757,7 +1757,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   newColor: {r: 1, g: 0.7137255, b: 0.7137255, a: 1}
-  animationTimer: 3
+  animationTimer: 2
   points: 100
 --- !u!60 &752944017
 PolygonCollider2D:
@@ -1867,7 +1867,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 752944015}
   m_LocalRotation: {x: -0.043619405, y: 0.9990483, z: -0, w: 0}
-  m_LocalPosition: {x: 1.75, y: -1.75, z: 0}
+  m_LocalPosition: {x: 1.75, y: -1.8, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2731,7 +2731,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   newColor: {r: 1, g: 0.7122642, b: 0.7122642, a: 1}
-  animationTimer: 3
+  animationTimer: 2
   points: 100
 --- !u!60 &994768294
 PolygonCollider2D:
@@ -2841,7 +2841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 994768292}
   m_LocalRotation: {x: 0, y: 0, z: -0.043619405, w: 0.9990483}
-  m_LocalPosition: {x: -1.75, y: -1.75, z: 0}
+  m_LocalPosition: {x: -1.75, y: -1.8, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3470,8 +3470,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1211344228}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.75, y: -0.9, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalPosition: {x: 2.7, y: -0.9, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 827065087}
@@ -3491,7 +3491,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   newColor: {r: 0.5803922, g: 0.94509804, b: 1, a: 1}
-  animationTimer: 3
+  animationTimer: 2
   points: 150
 --- !u!58 &1211344231
 CircleCollider2D:
@@ -3786,12 +3786,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c615356ceab43cf419640ddf87db003b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  KickoutPullDuration: 28
-  KickoutFallDuration: 40
-  KickoutInsideDuration: 150
-  KickoutCooldown: 900
-  pointStagger: 20
-  score: 550
+  KickoutPullDuration: 20
+  KickoutFallDuration: 30
+  KickoutInsideDuration: 100
+  KickoutCooldown: 750
+  pointStagger: 15
+  score: 500
 --- !u!1 &1284242149
 GameObject:
   m_ObjectHideFlags: 0
@@ -4330,7 +4330,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   newColor: {r: 1, g: 0.8352941, b: 0.99215686, a: 1}
-  animationTimer: 3
+  animationTimer: 2
   points: 500
 --- !u!1 &1393645227
 GameObject:
@@ -4594,7 +4594,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   newColor: {r: 1, g: 0.8349056, b: 0.9885543, a: 1}
-  animationTimer: 3
+  animationTimer: 2
   points: 500
 --- !u!1 &1475771508
 GameObject:
@@ -4698,7 +4698,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!1 &1509009592
 GameObject:
@@ -5552,7 +5552,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   newColor: {r: 0.9069689, g: 1, b: 0.8537736, a: 1}
-  animationTimer: 3
+  animationTimer: 2
   points: 200
 --- !u!1001 &1803347966
 PrefabInstance:
@@ -5652,6 +5652,10 @@ PrefabInstance:
     - target: {fileID: 7248035948756880326, guid: b2a3fe185fb06174199b908b1133be83, type: 3}
       propertyPath: m_Constraints
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248035948756880326, guid: b2a3fe185fb06174199b908b1133be83, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2a3fe185fb06174199b908b1133be83, type: 3}
@@ -5899,7 +5903,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 0
   newColor: {r: 1, g: 0.8352941, b: 0.99215686, a: 1}
-  animationTimer: 3
+  animationTimer: 2
   points: 250
 --- !u!1 &1949209892
 GameObject:
@@ -6894,6 +6898,10 @@ PrefabInstance:
     - target: {fileID: 7248035948756880326, guid: b2a3fe185fb06174199b908b1133be83, type: 3}
       propertyPath: m_Mass
       value: 7.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7248035948756880326, guid: b2a3fe185fb06174199b908b1133be83, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2a3fe185fb06174199b908b1133be83, type: 3}
